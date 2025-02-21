@@ -1,0 +1,22 @@
+{
+    "streaks": [
+      {
+        "id": "123456789",
+        "name": "Task Name",
+        "description": "Task Description",
+        "date": "2023-10-01",
+        "priority": "high",
+        "reminder": "2023-10-01T10:00:00",
+        "deadline": "2023-12-31",
+        "category": "work",
+        "recurring": "daily",
+        "completed": false,
+        "tags": ["urgent", "important"]
+      }
+    ],
+    "notes": {
+      "2023-10-01": "This is a note for October 1st, 2023."
+    },
+    "points": 50,
+    "badges": ["🥉", "🥈"]
+  }

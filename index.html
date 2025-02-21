@@ -1,0 +1,253 @@
+<!-- HTML Version -->
+<!DOCTYPE html>
+<!-- HTML -->
+<html lang="en">
+    <!-- Head Section -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gyan Times</title>
+    <link rel="shortcut icon" href="img/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<!-- Body Section -->
+<body>
+
+    <!-- Header Section -->
+
+    <header>
+        <nav>
+            <div class="desktop-only">
+                <div class="date-container">
+                    <span class="current-date"></span>
+                    <a class="e-Paper" href="#" aria-label="Read e-Paper">e-Paper</a>
+                </div>
+            </div>
+            <a href="index.html" class="logo">
+                <img src="img/logo.png" alt="Gyan Times Logo"> Gyan Times
+            </a>
+            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contect.html">Contact</a></li>
+                <li class="mobile-only">
+                    <div class="date-container">
+                        <span class="current-date"></span>
+                        <a class="e-Paper" href="#" aria-label="Read e-Paper">e-Paper</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Section -->
+
+    <main>
+        <section class="streak-challenge">
+            <section class="streak-challenge-header">
+                <h2><i class="fas fa-fire"></i> Streak Challenge</h2>
+                <p>Track your daily streaks and stay motivated!</p>
+            </section>
+
+            <section class="progress-tracker">
+                <h3><i class="fas fa-chart-line"></i> Progress Tracker</h3>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <p class="progress-text">0% Complete</p>
+            </section>
+
+            <section class="streak-rewards">
+                <h3><i class="fas fa-trophy"></i> Streak Rewards</h3>
+                <div class="badges">
+                    <span class="badge" title="Complete 50% tasks">🥉</span>
+                    <span class="badge" title="Complete 75% tasks">🥈</span>
+                    <span class="badge" title="Complete 95% tasks">🥇</span>
+                </div>
+                <p class="points">Points: <span id="points">0</span></p>
+            </section>
+            
+            <section id="streaks">
+                <h3><i class="fas fa-list"></i> To Do List</h3>
+                <ul id="streak-list">
+                    <li>
+                        <input type="checkbox" id="streak-1">
+                        <label for="streak-1">Task Name</label>
+                        <span>Description: Task Description</span>
+                        <span>Priority: High</span>
+                        <span>Deadline: 2023-12-31</span>
+                        <span>Category: Work</span>
+                        <span>Recurring: Daily</span>
+                        <button onclick="editStreak(0)" title="Edit Task"><i class="fas fa-edit"></i></button>
+                        <button onclick="deleteStreak(0)" title="Delete Task"><i class="fas fa-trash"></i></button>
+                    </li>
+                </ul>
+                <section id="filters">
+                    <h4><i class="fas fa-filter"></i> Filters</h4>
+                    <select id="filter-priority" aria-label="Filter by priority">
+                        <option value="all">All Priorities</option>
+                        <option value="high">High Priority</option>
+                        <option value="medium">Medium Priority</option>
+                        <option value="low">Low Priority</option>
+                    </select>
+                    <select id="filter-category" aria-label="Filter by category">
+                        <option value="all">All Categories</option>
+                        <option value="work">Work</option>
+                        <option value="study">Study</option>
+                        <option value="personal">Personal</option>
+                    </select>
+                    <select id="filter-completion" aria-label="Filter by completion">
+                        <option value="all">All Tasks</option>
+                        <option value="completed">Completed</option>
+                        <option value="incomplete">Incomplete</option>
+                    </select>
+                    <button id="apply-filters" aria-label="Apply Filters"><i class="fas fa-filter"></i> Apply Filters</button>
+                </section>
+            </section>
+            <section id="new-streak">
+                <h3><i class="fas fa-plus-circle"></i> Add a New Task</h3>
+                <input type="text" id="streak-name" placeholder="Enter task name" aria-label="Enter task name">
+                <textarea id="streak-description" placeholder="Enter task description" aria-label="Enter task description"></textarea>
+                <select id="priority-level" aria-label="Select priority level">
+                    <option value="low"><i class="fas fa-arrow-down"></i> Low Priority</option>
+                    <option value="medium"><i class="fas fa-arrow-right"></i> Medium Priority</option>
+                    <option value="high"><i class="fas fa-arrow-up"></i> High Priority</option>
+                </select>
+                <label for="reminder-time">Set reminder time:</label>
+                <input type="datetime-local" id="reminder-time" aria-label="Set reminder time">
+                <label for="deadline">Set deadline:</label>
+                <input type="date" id="deadline" aria-label="Set deadline">
+                <select id="task-category" aria-label="Select task category">
+                    <option value="work"><i class="fas fa-briefcase"></i> Work</option>
+                    <option value="study"><i class="fas fa-book"></i> Study</option>
+                    <option value="personal"><i class="fas fa-user"></i> Personal</option>
+                </select>
+                <select id="recurring" aria-label="Select recurring option">
+                    <option value="none">None</option>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                </select>
+                <button id="add-streak" aria-label="Add Task"><i class="fas fa-plus"></i> Add Task</button>
+            </section>
+            <section id="calendar">
+                <h3><i class="fas fa-calendar-alt"></i> Calendar</h3>
+                <div class="calendar-controls">
+                    <button id="prev-month" title="Previous Month" aria-label="Previous Month"><i class="fas fa-chevron-left"></i></button>
+                    <span id="current-month-year"></span>
+                    <button id="current-date" title="Current Date" aria-label="Current Date"><i class="fas fa-calendar-day"></i></button>
+                    <button id="next-month" title="Next Month" aria-label="Next Month"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div id="calendar-container">
+                    <!-- Calendar days will be dynamically added here -->
+                </div>
+            </section>
+            <div id="toast" class="toast"></div>
+            <section id="notes">
+                <h3><i class="fas fa-sticky-note"></i> Daily Notes</h3>
+                <textarea id="daily-notes" placeholder="Add notes for the selected day..."></textarea>
+                <button id="save-note"><i class="fas fa-save"></i> Save Note</button>
+            </section>
+            <section id="data-management">
+                <button id="download-data" aria-label="Download Data"><i class="fas fa-download"></i> Download Data</button>
+                <button id="upload-data" aria-label="Upload Data"><i class="fas fa-upload"></i> Upload Data</button>
+                <button id="clear-data" aria-label="Clear Data"><i class="fas fa-trash"></i> Clear Data</button>
+            </section>          
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <a href="index.html" class="logo">
+                    <img src="img/logo.png" alt="Gyan Times Logo"> Gyan Times
+                </a>
+                <p>Your ultimate destination for a wide range of notes, study materials, and tools available in both free and premium versions. Stay informed with the latest news, current affairs, and government updates. Our services cater to everyone, from free offerings to premium levels, all designed to meet your diverse needs.<br>We are a team of dedicated professionals committed to delivering the best services to our customers. Our mission is to simplify and enhance your life by providing reliable and high-quality resources. Join us and experience the difference!</p>
+            </div>
+            <div class="footer-second-row">
+                <div class="contact-info">
+                    <h3>Contact Us</h3>
+                    <p><a href="mailto:info@gyantimes.com"><i class="fas fa-envelope"></i> info@gyantimes.com</a></p>
+                    <p><a href="tel:+916200984630"><i class="fas fa-phone"></i> +91 6200984630</a></p>
+                    <p><a href="https://maps.app.goo.gl/5238SJmAWoj3NDoV9" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i> Hajipur, India</a></p>
+                </div>
+                <div class="links-container">
+                    <div class="social-links">
+                        <h3>Follow Us</h3>
+                        <ul>
+                            <li><a href="#" aria-label="Youtube"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="useful-links">
+                        <h3>Useful Links</h3>
+                        <ul>
+                            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                            <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                            <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+                            <li><a href="services.html"><i class="fas fa-cogs"></i> Services</a></li>
+                            <li><a href="contect.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-policy-container">
+            <p>&copy; 2025 <a href="#">Gyan Times</a>, India. All rights reserved.</p>
+            <div class="policy-buttons">
+                <a href="privacy policy.html" class="policy-btn">Privacy Policy</a>
+                <a href="terms and conditions.html" class="policy-btn">Terms and Conditions</a>
+                <a href="cancellation & refund policy.html" class="policy-btn">Cancellation & Refund Policy</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Floating Buttons -->
+
+    <section class="floating-buttons">
+        <div class="floating-button-container sharefloating-button" id="sharefloatingButton" aria-label="Share">
+            <i class="fas fa-share"></i>
+            <div class="share-options" id="shareOptions">
+                <button onclick="shareOnWhatsApp()" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></button>
+                <button onclick="copyLink()" aria-label="Copy Link"><i class="fas fa-link"></i></button>
+            </div>
+        </div>
+        <div class="floating-button-container Chat" id="chatfloating-Button" aria-label="Chat">
+            <i class="material-icons">chat</i>
+            <div class="chat-options" id="chatOptions">
+                <a href="https://wa.me/+91 6200984630" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://t.me/Gyan_times" target="_blank" rel="noopener" aria-label="Chat on Telegram">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="mailto:info@gyantimes.com" target="_blank" aria-label="Send Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+        <div class="floating-button-container dark-mode-toggle">
+            <i class="fas fa-moon"></i>
+        </div>
+    
+        <div class="floating-button-container" id="backToTop">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+    </section>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
